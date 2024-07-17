@@ -16,10 +16,14 @@ struct hashtable
     struct hashtable_item **items;
 };
 
-int get_hash(char *value, unsigned int prime, struct hashtable *hashtable);
+char *hashtable_search(const struct hashtable *hashtable, const char *key);
+
+void hashtable_insert(struct hashtable *hashtable, const char *key, const char *value);
+
+void hashtable_delete(const struct hashtable *hashtable, const char *key);
 
 struct hashtable *hashtable_new();
 
-void hashtable_delete(struct hashtable *hashtable);
+void hashtable_cleanup(struct hashtable *hashtable);
 
 #endif
